@@ -1,0 +1,13 @@
+.DS_Store
+
+# Xcode build products and user-specific state
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+
+# Swift Package Manager
+.build/
+.swiftpm/
