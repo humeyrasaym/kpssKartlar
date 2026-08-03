@@ -2,12 +2,12 @@ import SwiftUI
 
 @main
 struct KPSSKartlarApp: App {
-    @StateObject private var studyStore = StudyStore()
+    @StateObject private var studyController = StudyController()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(studyStore)
+            RootTabView()
+                .environmentObject(studyController)
                 .preferredColorScheme(.light)
         }
     }

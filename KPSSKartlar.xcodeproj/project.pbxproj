@@ -6,58 +6,61 @@
 	objects = {
 
 		A10000000000000000000001 /* KPSSKartlarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000001 /* KPSSKartlarApp.swift */; };
-		A10000000000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000002 /* ContentView.swift */; };
-		A10000000000000000000003 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000003 /* Flashcard.swift */; };
-		A10000000000000000000004 /* StudyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000004 /* StudyStore.swift */; };
-		A10000000000000000000005 /* SeedCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000005 /* SeedCards.swift */; };
+		A10000000000000000000002 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000002 /* RootTabView.swift */; };
+		A10000000000000000000003 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000003 /* Course.swift */; };
+		A10000000000000000000004 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000004 /* Flashcard.swift */; };
+		A10000000000000000000005 /* StudyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000005 /* StudyController.swift */; };
+		A10000000000000000000006 /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000006 /* SeedData.swift */; };
+		A10000000000000000000007 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000007 /* AppTheme.swift */; };
+		A10000000000000000000008 /* CourseProgressRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000008 /* CourseProgressRow.swift */; };
+		A10000000000000000000009 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000009 /* HomeView.swift */; };
+		A10000000000000000000010 /* CourseLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000010 /* CourseLibraryView.swift */; };
+		A10000000000000000000011 /* CourseDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000011 /* CourseDeckView.swift */; };
+		A10000000000000000000012 /* AddCourseSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000012 /* AddCourseSheet.swift */; };
+		A10000000000000000000013 /* CardListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000013 /* CardListRow.swift */; };
+		A10000000000000000000014 /* AddCardSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000014 /* AddCardSheet.swift */; };
+		A10000000000000000000015 /* EditCardSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000015 /* EditCardSheet.swift */; };
+		A10000000000000000000016 /* StudyDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000016 /* StudyDeckView.swift */; };
+		A10000000000000000000017 /* StudyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000017 /* StudyCard.swift */; };
+		A10000000000000000000018 /* CardFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000018 /* CardFace.swift */; };
+		A10000000000000000000019 /* DeckActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000019 /* DeckActionButton.swift */; };
+		A10000000000000000000020 /* ProgressScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000020 /* ProgressScreen.swift */; };
+		A10000000000000000000021 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000021 /* Assets.xcassets */; };
 
 		A20000000000000000000001 /* KPSSKartlarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPSSKartlarApp.swift; sourceTree = "<group>"; };
-		A20000000000000000000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A20000000000000000000003 /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
-		A20000000000000000000004 /* StudyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyStore.swift; sourceTree = "<group>"; };
-		A20000000000000000000005 /* SeedCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedCards.swift; sourceTree = "<group>"; };
-		A20000000000000000000006 /* KPSSKartlar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KPSSKartlar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A20000000000000000000002 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		A20000000000000000000003 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		A20000000000000000000004 /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
+		A20000000000000000000005 /* StudyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyController.swift; sourceTree = "<group>"; };
+		A20000000000000000000006 /* SeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
+		A20000000000000000000007 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		A20000000000000000000008 /* CourseProgressRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseProgressRow.swift; sourceTree = "<group>"; };
+		A20000000000000000000009 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A20000000000000000000010 /* CourseLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseLibraryView.swift; sourceTree = "<group>"; };
+		A20000000000000000000011 /* CourseDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDeckView.swift; sourceTree = "<group>"; };
+		A20000000000000000000012 /* AddCourseSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseSheet.swift; sourceTree = "<group>"; };
+		A20000000000000000000013 /* CardListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListRow.swift; sourceTree = "<group>"; };
+		A20000000000000000000014 /* AddCardSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardSheet.swift; sourceTree = "<group>"; };
+		A20000000000000000000015 /* EditCardSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardSheet.swift; sourceTree = "<group>"; };
+		A20000000000000000000016 /* StudyDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyDeckView.swift; sourceTree = "<group>"; };
+		A20000000000000000000017 /* StudyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCard.swift; sourceTree = "<group>"; };
+		A20000000000000000000018 /* CardFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFace.swift; sourceTree = "<group>"; };
+		A20000000000000000000019 /* DeckActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckActionButton.swift; sourceTree = "<group>"; };
+		A20000000000000000000020 /* ProgressScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressScreen.swift; sourceTree = "<group>"; };
+		A20000000000000000000021 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A20000000000000000000022 /* KPSSKartlar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KPSSKartlar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 
 		A30000000000000000000001 /* KPSSKartlar */ = {
 			isa = PBXGroup;
 			children = (
 				A30000000000000000000004 /* App */,
-				A30000000000000000000005 /* Features */,
-				A30000000000000000000006 /* Models */,
-				A30000000000000000000007 /* Services */,
-				A30000000000000000000008 /* Data */,
+				A30000000000000000000005 /* Models */,
+				A30000000000000000000006 /* Controllers */,
+				A30000000000000000000007 /* Data */,
+				A30000000000000000000008 /* Views */,
+				A30000000000000000000009 /* Resources */,
 			);
 			path = KPSSKartlar;
-			sourceTree = "<group>";
-		};
-		A30000000000000000000004 /* App */ = {
-			isa = PBXGroup;
-			children = (A20000000000000000000001 /* KPSSKartlarApp.swift */);
-			path = App;
-			sourceTree = "<group>";
-		};
-		A30000000000000000000005 /* Features */ = {
-			isa = PBXGroup;
-			children = (A20000000000000000000002 /* ContentView.swift */);
-			path = Features;
-			sourceTree = "<group>";
-		};
-		A30000000000000000000006 /* Models */ = {
-			isa = PBXGroup;
-			children = (A20000000000000000000003 /* Flashcard.swift */);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		A30000000000000000000007 /* Services */ = {
-			isa = PBXGroup;
-			children = (A20000000000000000000004 /* StudyStore.swift */);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		A30000000000000000000008 /* Data */ = {
-			isa = PBXGroup;
-			children = (A20000000000000000000005 /* SeedCards.swift */);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		A30000000000000000000002 = {
@@ -70,10 +73,87 @@
 		};
 		A30000000000000000000003 /* Products */ = {
 			isa = PBXGroup;
-			children = (
-				A20000000000000000000006 /* KPSSKartlar.app */,
-			);
+			children = (A20000000000000000000022 /* KPSSKartlar.app */);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A30000000000000000000004 /* App */ = {
+			isa = PBXGroup;
+			children = (A20000000000000000000001 /* KPSSKartlarApp.swift */, A20000000000000000000002 /* RootTabView.swift */);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A30000000000000000000005 /* Models */ = {
+			isa = PBXGroup;
+			children = (A20000000000000000000003 /* Course.swift */, A20000000000000000000004 /* Flashcard.swift */);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A30000000000000000000006 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (A20000000000000000000005 /* StudyController.swift */);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A30000000000000000000007 /* Data */ = {
+			isa = PBXGroup;
+			children = (A20000000000000000000006 /* SeedData.swift */);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		A30000000000000000000008 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A30000000000000000000010 /* Shared */,
+				A30000000000000000000011 /* Home */,
+				A30000000000000000000012 /* Courses */,
+				A30000000000000000000013 /* Cards */,
+				A30000000000000000000014 /* Study */,
+				A30000000000000000000015 /* Progress */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A30000000000000000000009 /* Resources */ = {
+			isa = PBXGroup;
+			children = (A20000000000000000000021 /* Assets.xcassets */);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A30000000000000000000010 /* Shared */ = {
+			isa = PBXGroup;
+			children = (A20000000000000000000007 /* AppTheme.swift */, A20000000000000000000008 /* CourseProgressRow.swift */);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		A30000000000000000000011 /* Home */ = {
+			isa = PBXGroup;
+			children = (A20000000000000000000009 /* HomeView.swift */);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A30000000000000000000012 /* Courses */ = {
+			isa = PBXGroup;
+			children = (A20000000000000000000010 /* CourseLibraryView.swift */, A20000000000000000000011 /* CourseDeckView.swift */, A20000000000000000000012 /* AddCourseSheet.swift */);
+			path = Courses;
+			sourceTree = "<group>";
+		};
+		A30000000000000000000013 /* Cards */ = {
+			isa = PBXGroup;
+			children = (A20000000000000000000013 /* CardListRow.swift */, A20000000000000000000014 /* AddCardSheet.swift */, A20000000000000000000015 /* EditCardSheet.swift */);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		A30000000000000000000014 /* Study */ = {
+			isa = PBXGroup;
+			children = (A20000000000000000000016 /* StudyDeckView.swift */, A20000000000000000000017 /* StudyCard.swift */, A20000000000000000000018 /* CardFace.swift */, A20000000000000000000019 /* DeckActionButton.swift */);
+			path = Study;
+			sourceTree = "<group>";
+		};
+		A30000000000000000000015 /* Progress */ = {
+			isa = PBXGroup;
+			children = (A20000000000000000000020 /* ProgressScreen.swift */);
+			path = Progress;
 			sourceTree = "<group>";
 		};
 
@@ -82,10 +162,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				A10000000000000000000001 /* KPSSKartlarApp.swift in Sources */,
-				A10000000000000000000002 /* ContentView.swift in Sources */,
-				A10000000000000000000003 /* Flashcard.swift in Sources */,
-				A10000000000000000000004 /* StudyStore.swift in Sources */,
-				A10000000000000000000005 /* SeedCards.swift in Sources */,
+				A10000000000000000000002 /* RootTabView.swift in Sources */,
+				A10000000000000000000003 /* Course.swift in Sources */,
+				A10000000000000000000004 /* Flashcard.swift in Sources */,
+				A10000000000000000000005 /* StudyController.swift in Sources */,
+				A10000000000000000000006 /* SeedData.swift in Sources */,
+				A10000000000000000000007 /* AppTheme.swift in Sources */,
+				A10000000000000000000008 /* CourseProgressRow.swift in Sources */,
+				A10000000000000000000009 /* HomeView.swift in Sources */,
+				A10000000000000000000010 /* CourseLibraryView.swift in Sources */,
+				A10000000000000000000011 /* CourseDeckView.swift in Sources */,
+				A10000000000000000000012 /* AddCourseSheet.swift in Sources */,
+				A10000000000000000000013 /* CardListRow.swift in Sources */,
+				A10000000000000000000014 /* AddCardSheet.swift in Sources */,
+				A10000000000000000000015 /* EditCardSheet.swift in Sources */,
+				A10000000000000000000016 /* StudyDeckView.swift in Sources */,
+				A10000000000000000000017 /* StudyCard.swift in Sources */,
+				A10000000000000000000018 /* CardFace.swift in Sources */,
+				A10000000000000000000019 /* DeckActionButton.swift in Sources */,
+				A10000000000000000000020 /* ProgressScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,23 +193,19 @@
 		A40000000000000000000003 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
-			files = ();
+			files = (A10000000000000000000021 /* Assets.xcassets in Resources */);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 
 		A50000000000000000000001 /* KPSSKartlar */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A60000000000000000000003 /* Build configuration list for PBXNativeTarget "KPSSKartlar" */;
-			buildPhases = (
-				A40000000000000000000001 /* Sources */,
-				A40000000000000000000002 /* Frameworks */,
-				A40000000000000000000003 /* Resources */,
-			);
+			buildPhases = (A40000000000000000000001 /* Sources */, A40000000000000000000002 /* Frameworks */, A40000000000000000000003 /* Resources */);
 			buildRules = ();
 			dependencies = ();
 			name = KPSSKartlar;
 			productName = KPSSKartlar;
-			productReference = A20000000000000000000006 /* KPSSKartlar.app */;
+			productReference = A20000000000000000000022 /* KPSSKartlar.app */;
 			productType = "com.apple.product-type.application";
 		};
 
@@ -124,11 +215,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
-				TargetAttributes = {
-					A50000000000000000000001 = {
-						CreatedOnToolsVersion = 16.2;
-					};
-				};
+				TargetAttributes = { A50000000000000000000001 = { CreatedOnToolsVersion = 16.2; }; };
 			};
 			buildConfigurationList = A60000000000000000000001 /* Build configuration list for PBXProject "KPSSKartlar" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -176,6 +263,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
@@ -188,6 +276,7 @@
 		A60000000000000000000005 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -214,6 +303,7 @@
 		A60000000000000000000006 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
