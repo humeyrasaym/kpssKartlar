@@ -42,7 +42,7 @@ struct HomeView: View {
                                     .background(.white.opacity(0.18), in: Circle())
                                 VStack(alignment: .leading, spacing: 3) {
                                     Text("Hızlı tekrar").font(.headline)
-                                    Text("Kaç kart çalışacağını seç")
+                                    Text("Tüm derslerden karışık kartlar")
                                         .font(.subheadline)
                                         .foregroundStyle(.white.opacity(0.82))
                                 }

@@ -15,7 +15,7 @@ struct StudySessionSetupSheet: View {
     }
 
     private var deckName: String {
-        courseID.flatMap { studyController.course(for: $0)?.title } ?? "Tüm dersler"
+        courseID.flatMap { studyController.course(for: $0)?.title } ?? "Tüm dersler · karışık"
     }
 
     var body: some View {

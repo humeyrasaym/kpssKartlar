@@ -74,7 +74,7 @@ final class StudyController: ObservableObject {
     /// Returns a finite snapshot so a round is never overwhelming and marking
     /// a card as known cannot make the remaining cards jump unexpectedly.
     func reviewSession(for courseID: String? = nil, limit: Int) -> [Flashcard] {
-        Array(cardsForReview(for: courseID).prefix(max(1, limit)))
+        Array(cardsForReview(for: courseID).shuffled().prefix(max(1, limit)))
     }
 
     func progress(for course: Course) -> CourseProgress {
