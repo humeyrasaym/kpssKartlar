@@ -5,9 +5,7 @@ struct CourseProgressRow: View {
 
     var body: some View {
         HStack(spacing: 14) {
-            Image(systemName: progress.course.style.iconName)
-                .font(.headline)
-                .foregroundStyle(progress.course.style.color)
+            CourseIcon(course: progress.course, size: 20)
                 .frame(width: 44, height: 44)
                 .background(progress.course.style.paleColor, in: Circle())
             VStack(alignment: .leading, spacing: 8) {

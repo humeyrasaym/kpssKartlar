@@ -68,9 +68,7 @@ private struct CourseLibraryRow: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Image(systemName: progress.course.style.iconName)
-                    .font(.headline)
-                    .foregroundStyle(progress.course.style.color)
+                CourseIcon(course: progress.course, size: 20)
                     .frame(width: 40, height: 40)
                     .background(progress.course.style.paleColor, in: Circle())
                 VStack(alignment: .leading, spacing: 2) {

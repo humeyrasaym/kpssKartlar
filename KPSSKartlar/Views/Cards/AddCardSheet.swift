@@ -29,7 +29,11 @@ struct AddCardSheet: View {
                 Section("Ders") {
                     Picker("Ders", selection: $courseID) {
                         ForEach(studyController.courses) { course in
-                            Label(course.title, systemImage: course.style.iconName).tag(course.id)
+                            HStack(spacing: 8) {
+                                CourseIcon(course: course, size: 15)
+                                Text(course.title)
+                            }
+                            .tag(course.id)
                         }
                     }
                 }

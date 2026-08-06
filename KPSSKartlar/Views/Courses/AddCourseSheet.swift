@@ -5,6 +5,7 @@ struct AddCourseSheet: View {
     @Environment(\.dismiss) private var dismiss
     @State private var title = ""
     @State private var style: CourseStyle = .custom
+    @State private var emoji = ""
     @State private var isShowingDuplicateWarning = false
 
     var body: some View {
@@ -19,8 +20,7 @@ struct AddCourseSheet: View {
                                 }
                             } label: {
                                 HStack(spacing: 12) {
-                                    Image(systemName: course.style.iconName)
-                                        .foregroundStyle(course.style.color)
+                                    CourseIcon(course: course, size: 18)
                                         .frame(width: 28)
                                     Text(course.title)
                                         .foregroundStyle(AppTheme.ink)
@@ -35,9 +35,10 @@ struct AddCourseSheet: View {
 
                 Section("Kendi dersin") {
                     TextField("Ders adı", text: $title)
-                    Picker("Simge", selection: $style) {
+                    EmojiPicker(selection: $emoji)
+                    Picker("Tema rengi", selection: $style) {
                         ForEach(CourseStyle.allCases) { option in
-                            Label(option.pickerTitle, systemImage: option.iconName).tag(option)
+                            Text(option.pickerTitle).tag(option)
                         }
                     }
                 }
@@ -58,7 +59,7 @@ struct AddCourseSheet: View {
                 ToolbarItem(placement: .cancellationAction) { Button("Vazgeç", action: dismiss.callAsFunction) }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Kaydet") {
-                        if studyController.addCourse(title: title, style: style) {
+                        if studyController.addCourse(title: title, style: style, emoji: emoji) {
                             dismiss()
                         } else {
                             isShowingDuplicateWarning = true

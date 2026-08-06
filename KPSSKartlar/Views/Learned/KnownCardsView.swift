@@ -27,7 +27,7 @@ struct KnownCardsView: View {
                         description: Text("Bir kartta Biliyorum dediğinde burada birikir.")
                     )
                 } else {
-                    ScrollView(showsIndicators: false) {
+                    ScrollView(.vertical, showsIndicators: false) {
                         VStack(alignment: .leading, spacing: 22) {
                             VStack(alignment: .leading, spacing: 7) {
                                 Text("ÖĞRENDİKLERİN")
@@ -45,9 +45,15 @@ struct KnownCardsView: View {
                             ForEach(cardsByCourse, id: \.course.id) { section in
                                 VStack(alignment: .leading, spacing: 10) {
                                     HStack {
-                                        Label(section.course.title, systemImage: section.course.style.iconName)
+                                        HStack(spacing: 8) {
+                                            CourseIcon(course: section.course, size: 17)
+                                            Text(section.course.title)
+                                                .lineLimit(1)
+                                                .truncationMode(.tail)
+                                        }
                                             .font(.headline)
                                             .foregroundStyle(section.course.style.color)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
                                         Spacer()
                                         Text("\(section.cards.count) kart")
                                             .font(.caption.weight(.semibold))
@@ -75,7 +81,10 @@ struct KnownCardsView: View {
                             }
                         }
                         .padding(20)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
+                    .scrollBounceBehavior(.basedOnSize, axes: .horizontal)
+                    .scrollBounceBehavior(.basedOnSize, axes: .vertical)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)

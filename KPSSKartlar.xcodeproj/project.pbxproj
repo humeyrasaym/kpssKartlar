@@ -29,6 +29,8 @@
 		A10000000000000000000020 /* ProgressScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000020 /* ProgressScreen.swift */; };
 		A10000000000000000000023 /* KnownCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000023 /* KnownCardsView.swift */; };
 		A10000000000000000000024 /* StudySessionSetupSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000024 /* StudySessionSetupSheet.swift */; };
+		A10000000000000000000025 /* CourseIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000025 /* CourseIcon.swift */; };
+		A10000000000000000000026 /* EmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000026 /* EmojiPicker.swift */; };
 		A10000000000000000000021 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000021 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,8 @@
 		A20000000000000000000020 /* ProgressScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressScreen.swift; sourceTree = "<group>"; };
 		A20000000000000000000023 /* KnownCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownCardsView.swift; sourceTree = "<group>"; };
 		A20000000000000000000024 /* StudySessionSetupSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySessionSetupSheet.swift; sourceTree = "<group>"; };
+		A20000000000000000000025 /* CourseIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseIcon.swift; sourceTree = "<group>"; };
+		A20000000000000000000026 /* EmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPicker.swift; sourceTree = "<group>"; };
 		A20000000000000000000021 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A20000000000000000000022 /* KPSSKartlar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KPSSKartlar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -160,6 +164,8 @@
 			children = (
 				A20000000000000000000007 /* AppTheme.swift */,
 				A20000000000000000000008 /* CourseProgressRow.swift */,
+				A20000000000000000000025 /* CourseIcon.swift */,
+				A20000000000000000000026 /* EmojiPicker.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -312,6 +318,8 @@
 				A10000000000000000000020 /* ProgressScreen.swift in Sources */,
 				A10000000000000000000023 /* KnownCardsView.swift in Sources */,
 				A10000000000000000000024 /* StudySessionSetupSheet.swift in Sources */,
+				A10000000000000000000025 /* CourseIcon.swift in Sources */,
+				A10000000000000000000026 /* EmojiPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

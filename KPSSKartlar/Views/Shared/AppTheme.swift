@@ -40,14 +40,14 @@ extension CourseStyle {
 
     var pickerTitle: String {
         switch self {
-        case .history: "Tarih"
-        case .geography: "Coğrafya"
-        case .turkish: "Türkçe"
-        case .mathematics: "Matematik"
-        case .citizenship: "Vatandaşlık"
-        case .currentAffairs: "Güncel bilgiler"
-        case .education: "Eğitim bilimleri"
-        case .custom: "Genel"
+        case .history: "Kiremit"
+        case .geography: "Yeşil"
+        case .turkish: "Mavi"
+        case .mathematics: "Mor"
+        case .citizenship: "Kahve"
+        case .currentAffairs: "Turuncu"
+        case .education: "Pembe"
+        case .custom: "Turkuaz"
         }
     }
 }

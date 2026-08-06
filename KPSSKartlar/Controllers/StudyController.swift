@@ -102,14 +102,21 @@ final class StudyController: ObservableObject {
     }
 
     @discardableResult
-    func addCourse(title: String, style: CourseStyle) -> Bool {
+    func addCourse(title: String, style: CourseStyle, emoji: String? = nil) -> Bool {
         let trimmedTitle = title.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedTitle.isEmpty,
               !courses.contains(where: { $0.title.compare(trimmedTitle, options: [.caseInsensitive, .diacriticInsensitive]) == .orderedSame }) else {
             return false
         }
 
-        courses.append(Course(title: trimmedTitle, style: style, isFromUser: true))
+        courses.append(
+            Course(
+                title: trimmedTitle,
+                style: style,
+                emoji: normalizedEmoji(emoji),
+                isFromUser: true
+            )
+        )
         return true
     }
 
@@ -122,6 +129,7 @@ final class StudyController: ObservableObject {
                 id: suggestion.id,
                 title: suggestion.title,
                 style: suggestion.style,
+                emoji: suggestion.emoji,
                 isFromUser: true
             )
         )
@@ -166,6 +174,12 @@ final class StudyController: ObservableObject {
     func normalizedTopic(_ value: String) -> String {
         let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmed.isEmpty ? "Kendi notum" : trimmed
+    }
+
+    private func normalizedEmoji(_ value: String?) -> String? {
+        guard let value else { return nil }
+        let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmed.first.map(String.init)
     }
 
     private func selectedCourses(from savedCourses: [Course]) -> [Course] {

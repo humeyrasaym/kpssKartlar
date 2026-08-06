@@ -20,17 +20,20 @@ struct Course: Identifiable, Hashable, Codable {
     let id: String
     var title: String
     var style: CourseStyle
+    var emoji: String?
     let isFromUser: Bool
 
     init(
         id: String = UUID().uuidString,
         title: String,
         style: CourseStyle,
+        emoji: String? = nil,
         isFromUser: Bool
     ) {
         self.id = id
         self.title = title
         self.style = style
+        self.emoji = emoji
         self.isFromUser = isFromUser
     }
 }

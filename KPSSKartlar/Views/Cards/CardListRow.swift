@@ -14,6 +14,8 @@ struct CardListRow: View {
                     .font(.caption2.weight(.bold))
                     .tracking(0.7)
                     .foregroundStyle(AppTheme.warmGray)
+                    .lineLimit(2)
+                    .fixedSize(horizontal: false, vertical: true)
                 Spacer()
                 if studyController.isKnown(card) {
                     Image(systemName: "checkmark.circle.fill").foregroundStyle(course.style.color)
@@ -23,6 +25,7 @@ struct CardListRow: View {
                 .font(.body)
                 .foregroundStyle(AppTheme.ink)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .fixedSize(horizontal: false, vertical: true)
             HStack {
                 Label(card.isTwoSided ? "Soru · cevap" : "Tek yüz", systemImage: card.isTwoSided ? "rectangle.on.rectangle" : "rectangle")
                     .font(.caption.weight(.semibold))
