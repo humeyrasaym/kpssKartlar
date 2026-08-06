@@ -8,6 +8,14 @@ struct HomeView: View {
         studyController.allCards.filter(studyController.isKnown).count
     }
 
+    private var reviewCardCount: Int {
+        studyController.cardsForReview().count
+    }
+
+    private var nextRoundCount: Int {
+        min(StudyController.defaultSessionSize, reviewCardCount)
+    }
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -22,12 +30,13 @@ struct HomeView: View {
                             Text("Zihninde yer aç.")
                                 .font(.system(size: 34, weight: .bold, design: .serif))
                                 .foregroundStyle(AppTheme.ink)
-                            Text("Bugün sadece birkaç kart. Küçük tekrarlar kalıcı olur.")
+                            Text("Bugün en fazla 40 kart. Küçük tekrarlar kalıcı olur.")
                                 .font(.subheadline)
                                 .foregroundStyle(AppTheme.warmGray)
                         }
 
-                        Button { isShowingAllStudyCards = true } label: {
+                        if reviewCardCount > 0 {
+                            Button { isShowingAllStudyCards = true } label: {
                             HStack(alignment: .center, spacing: 16) {
                                 Image(systemName: "sparkles")
                                     .font(.title2.weight(.semibold))
@@ -35,7 +44,7 @@ struct HomeView: View {
                                     .background(.white.opacity(0.18), in: Circle())
                                 VStack(alignment: .leading, spacing: 3) {
                                     Text("Hızlı tekrar").font(.headline)
-                                    Text("\(studyController.allCards.count) kart seni bekliyor")
+                                    Text("\(nextRoundCount) kartlık odak turu hazır")
                                         .font(.subheadline)
                                         .foregroundStyle(.white.opacity(0.82))
                                 }
@@ -45,8 +54,26 @@ struct HomeView: View {
                             .foregroundStyle(.white)
                             .padding(20)
                             .background(AppTheme.ink, in: RoundedRectangle(cornerRadius: 26, style: .continuous))
+                            }
+                            .buttonStyle(.plain)
+                        } else {
+                            HStack(alignment: .center, spacing: 16) {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .font(.title2.weight(.semibold))
+                                    .frame(width: 48, height: 48)
+                                    .background(.white.opacity(0.18), in: Circle())
+                                VStack(alignment: .leading, spacing: 3) {
+                                    Text("Bugünlük tamam").font(.headline)
+                                    Text("Bildiğin kartlar Öğrendim sekmesinde.")
+                                        .font(.subheadline)
+                                        .foregroundStyle(.white.opacity(0.82))
+                                }
+                                Spacer()
+                            }
+                            .foregroundStyle(.white)
+                            .padding(20)
+                            .background(AppTheme.ink, in: RoundedRectangle(cornerRadius: 26, style: .continuous))
                         }
-                        .buttonStyle(.plain)
 
                         VStack(alignment: .leading, spacing: 13) {
                             HStack {
@@ -67,7 +94,7 @@ struct HomeView: View {
                         }
 
                         NoteRule()
-                        Text("Bir kartı biliyorsan işaretle; emin değilsen tekrar akışında bırak. Uygulama, not metnini değiştirmeden saklar.")
+                        Text("Biliyorum dediğin kartlar Öğrendim sekmesinde birikir. Emin değilsen tekrar akışında bırak; not metni hiç değişmez.")
                             .font(.footnote)
                             .foregroundStyle(AppTheme.warmGray)
                             .padding(.bottom, 12)

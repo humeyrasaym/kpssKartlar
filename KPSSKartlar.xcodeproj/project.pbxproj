@@ -1,10 +1,12 @@
 // !$*UTF8*$!
 {
 	archiveVersion = 1;
-	classes = {};
+	classes = {
+	};
 	objectVersion = 56;
 	objects = {
 
+/* Begin PBXBuildFile section */
 		A10000000000000000000001 /* KPSSKartlarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000001 /* KPSSKartlarApp.swift */; };
 		A10000000000000000000002 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000002 /* RootTabView.swift */; };
 		A10000000000000000000003 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000003 /* Course.swift */; };
@@ -25,8 +27,11 @@
 		A10000000000000000000018 /* CardFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000018 /* CardFace.swift */; };
 		A10000000000000000000019 /* DeckActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000019 /* DeckActionButton.swift */; };
 		A10000000000000000000020 /* ProgressScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000020 /* ProgressScreen.swift */; };
+		A10000000000000000000023 /* KnownCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000023 /* KnownCardsView.swift */; };
 		A10000000000000000000021 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000021 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
 
+/* Begin PBXFileReference section */
 		A20000000000000000000001 /* KPSSKartlarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPSSKartlarApp.swift; sourceTree = "<group>"; };
 		A20000000000000000000002 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
 		A20000000000000000000003 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
@@ -47,9 +52,22 @@
 		A20000000000000000000018 /* CardFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFace.swift; sourceTree = "<group>"; };
 		A20000000000000000000019 /* DeckActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckActionButton.swift; sourceTree = "<group>"; };
 		A20000000000000000000020 /* ProgressScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressScreen.swift; sourceTree = "<group>"; };
+		A20000000000000000000023 /* KnownCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownCardsView.swift; sourceTree = "<group>"; };
 		A20000000000000000000021 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A20000000000000000000022 /* KPSSKartlar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KPSSKartlar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
 
+/* Begin PBXFrameworksBuildPhase section */
+		A40000000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
 		A30000000000000000000001 /* KPSSKartlar */ = {
 			isa = PBXGroup;
 			children = (
@@ -73,31 +91,43 @@
 		};
 		A30000000000000000000003 /* Products */ = {
 			isa = PBXGroup;
-			children = (A20000000000000000000022 /* KPSSKartlar.app */);
+			children = (
+				A20000000000000000000022 /* KPSSKartlar.app */,
+			);
 			name = Products;
 			sourceTree = "<group>";
 		};
 		A30000000000000000000004 /* App */ = {
 			isa = PBXGroup;
-			children = (A20000000000000000000001 /* KPSSKartlarApp.swift */, A20000000000000000000002 /* RootTabView.swift */);
+			children = (
+				A20000000000000000000001 /* KPSSKartlarApp.swift */,
+				A20000000000000000000002 /* RootTabView.swift */,
+			);
 			path = App;
 			sourceTree = "<group>";
 		};
 		A30000000000000000000005 /* Models */ = {
 			isa = PBXGroup;
-			children = (A20000000000000000000003 /* Course.swift */, A20000000000000000000004 /* Flashcard.swift */);
+			children = (
+				A20000000000000000000003 /* Course.swift */,
+				A20000000000000000000004 /* Flashcard.swift */,
+			);
 			path = Models;
 			sourceTree = "<group>";
 		};
 		A30000000000000000000006 /* Controllers */ = {
 			isa = PBXGroup;
-			children = (A20000000000000000000005 /* StudyController.swift */);
+			children = (
+				A20000000000000000000005 /* StudyController.swift */,
+			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
 		A30000000000000000000007 /* Data */ = {
 			isa = PBXGroup;
-			children = (A20000000000000000000006 /* SeedData.swift */);
+			children = (
+				A20000000000000000000006 /* SeedData.swift */,
+			);
 			path = Data;
 			sourceTree = "<group>";
 		};
@@ -110,53 +140,149 @@
 				A30000000000000000000013 /* Cards */,
 				A30000000000000000000014 /* Study */,
 				A30000000000000000000015 /* Progress */,
+				A30000000000000000000016 /* Learned */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
 		A30000000000000000000009 /* Resources */ = {
 			isa = PBXGroup;
-			children = (A20000000000000000000021 /* Assets.xcassets */);
+			children = (
+				A20000000000000000000021 /* Assets.xcassets */,
+			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
 		A30000000000000000000010 /* Shared */ = {
 			isa = PBXGroup;
-			children = (A20000000000000000000007 /* AppTheme.swift */, A20000000000000000000008 /* CourseProgressRow.swift */);
+			children = (
+				A20000000000000000000007 /* AppTheme.swift */,
+				A20000000000000000000008 /* CourseProgressRow.swift */,
+			);
 			path = Shared;
 			sourceTree = "<group>";
 		};
 		A30000000000000000000011 /* Home */ = {
 			isa = PBXGroup;
-			children = (A20000000000000000000009 /* HomeView.swift */);
+			children = (
+				A20000000000000000000009 /* HomeView.swift */,
+			);
 			path = Home;
 			sourceTree = "<group>";
 		};
 		A30000000000000000000012 /* Courses */ = {
 			isa = PBXGroup;
-			children = (A20000000000000000000010 /* CourseLibraryView.swift */, A20000000000000000000011 /* CourseDeckView.swift */, A20000000000000000000012 /* AddCourseSheet.swift */);
+			children = (
+				A20000000000000000000010 /* CourseLibraryView.swift */,
+				A20000000000000000000011 /* CourseDeckView.swift */,
+				A20000000000000000000012 /* AddCourseSheet.swift */,
+			);
 			path = Courses;
 			sourceTree = "<group>";
 		};
 		A30000000000000000000013 /* Cards */ = {
 			isa = PBXGroup;
-			children = (A20000000000000000000013 /* CardListRow.swift */, A20000000000000000000014 /* AddCardSheet.swift */, A20000000000000000000015 /* EditCardSheet.swift */);
+			children = (
+				A20000000000000000000013 /* CardListRow.swift */,
+				A20000000000000000000014 /* AddCardSheet.swift */,
+				A20000000000000000000015 /* EditCardSheet.swift */,
+			);
 			path = Cards;
 			sourceTree = "<group>";
 		};
 		A30000000000000000000014 /* Study */ = {
 			isa = PBXGroup;
-			children = (A20000000000000000000016 /* StudyDeckView.swift */, A20000000000000000000017 /* StudyCard.swift */, A20000000000000000000018 /* CardFace.swift */, A20000000000000000000019 /* DeckActionButton.swift */);
+			children = (
+				A20000000000000000000016 /* StudyDeckView.swift */,
+				A20000000000000000000017 /* StudyCard.swift */,
+				A20000000000000000000018 /* CardFace.swift */,
+				A20000000000000000000019 /* DeckActionButton.swift */,
+			);
 			path = Study;
 			sourceTree = "<group>";
 		};
 		A30000000000000000000015 /* Progress */ = {
 			isa = PBXGroup;
-			children = (A20000000000000000000020 /* ProgressScreen.swift */);
+			children = (
+				A20000000000000000000020 /* ProgressScreen.swift */,
+			);
 			path = Progress;
 			sourceTree = "<group>";
 		};
+		A30000000000000000000016 /* Learned */ = {
+			isa = PBXGroup;
+			children = (
+				A20000000000000000000023 /* KnownCardsView.swift */,
+			);
+			path = Learned;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
 
+/* Begin PBXNativeTarget section */
+		A50000000000000000000001 /* KPSSKartlar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A60000000000000000000003 /* Build configuration list for PBXNativeTarget "KPSSKartlar" */;
+			buildPhases = (
+				A40000000000000000000001 /* Sources */,
+				A40000000000000000000002 /* Frameworks */,
+				A40000000000000000000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KPSSKartlar;
+			productName = KPSSKartlar;
+			productReference = A20000000000000000000022 /* KPSSKartlar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A70000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					A50000000000000000000001 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+				};
+			};
+			buildConfigurationList = A60000000000000000000001 /* Build configuration list for PBXProject "KPSSKartlar" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				tr,
+			);
+			mainGroup = A30000000000000000000002;
+			productRefGroup = A30000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A50000000000000000000001 /* KPSSKartlar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A40000000000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000021 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
 		A40000000000000000000001 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -181,66 +307,13 @@
 				A10000000000000000000018 /* CardFace.swift in Sources */,
 				A10000000000000000000019 /* DeckActionButton.swift in Sources */,
 				A10000000000000000000020 /* ProgressScreen.swift in Sources */,
+				A10000000000000000000023 /* KnownCardsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A40000000000000000000002 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = ();
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A40000000000000000000003 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (A10000000000000000000021 /* Assets.xcassets in Resources */);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
+/* End PBXSourcesBuildPhase section */
 
-		A50000000000000000000001 /* KPSSKartlar */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A60000000000000000000003 /* Build configuration list for PBXNativeTarget "KPSSKartlar" */;
-			buildPhases = (A40000000000000000000001 /* Sources */, A40000000000000000000002 /* Frameworks */, A40000000000000000000003 /* Resources */);
-			buildRules = ();
-			dependencies = ();
-			name = KPSSKartlar;
-			productName = KPSSKartlar;
-			productReference = A20000000000000000000022 /* KPSSKartlar.app */;
-			productType = "com.apple.product-type.application";
-		};
-
-		A70000000000000000000001 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1620;
-				LastUpgradeCheck = 1620;
-				TargetAttributes = { A50000000000000000000001 = { CreatedOnToolsVersion = 16.2; }; };
-			};
-			buildConfigurationList = A60000000000000000000001 /* Build configuration list for PBXProject "KPSSKartlar" */;
-			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
-			hasScannedForEncodings = 0;
-			knownRegions = (en, Base, tr);
-			mainGroup = A30000000000000000000002;
-			productRefGroup = A30000000000000000000003 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (A50000000000000000000001 /* KPSSKartlar */);
-		};
-
-		A60000000000000000000001 /* Build configuration list for PBXProject "KPSSKartlar" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (A60000000000000000000002 /* Debug */, A60000000000000000000004 /* Release */);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A60000000000000000000003 /* Build configuration list for PBXNativeTarget "KPSSKartlar" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (A60000000000000000000005 /* Debug */, A60000000000000000000006 /* Release */);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
+/* Begin XCBuildConfiguration section */
 		A60000000000000000000002 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -278,25 +351,30 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K89SKHBN94;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "KPSS Kartlar";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kpsskartlar.study;
+				PRODUCT_BUNDLE_IDENTIFIER = com.humeyrasaym.kpsskartlar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -305,28 +383,55 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K89SKHBN94;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "KPSS Kartlar";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kpsskartlar.study;
+				PRODUCT_BUNDLE_IDENTIFIER = com.humeyrasaym.kpsskartlar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A60000000000000000000001 /* Build configuration list for PBXProject "KPSSKartlar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A60000000000000000000002 /* Debug */,
+				A60000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A60000000000000000000003 /* Build configuration list for PBXNativeTarget "KPSSKartlar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A60000000000000000000005 /* Debug */,
+				A60000000000000000000006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
 	};
 	rootObject = A70000000000000000000001 /* Project object */;
 }

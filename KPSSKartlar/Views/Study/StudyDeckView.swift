@@ -4,12 +4,24 @@ struct StudyDeckView: View {
     @EnvironmentObject private var studyController: StudyController
     @Environment(\.dismiss) private var dismiss
     let courseID: String?
+    @State private var sessionCards: [Flashcard] = []
     @State private var cardIndex = 0
     @State private var isAnswerVisible = false
     @State private var isEditing = false
+    @State private var isSessionComplete = false
 
-    private var cards: [Flashcard] { studyController.cards(for: courseID) }
-    private var currentCard: Flashcard? { cards.isEmpty ? nil : cards[min(cardIndex, cards.count - 1)] }
+    private var currentCard: Flashcard? {
+        guard sessionCards.indices.contains(cardIndex) else { return nil }
+        return sessionCards[cardIndex]
+    }
+
+    private var remainingReviewCount: Int {
+        studyController.cardsForReview(for: courseID).count
+    }
+
+    private var hasCardsInDeck: Bool {
+        !studyController.cards(for: courseID).isEmpty
+    }
 
     var body: some View {
         GeometryReader { geometry in
@@ -21,7 +33,9 @@ struct StudyDeckView: View {
 
             ZStack {
                 PaperBackground()
-                if let card = currentCard, let course = studyController.course(for: card.courseID) {
+                if isSessionComplete {
+                    completedContent(geometry: geometry, topInset: topInset, bottomInset: bottomInset)
+                } else if let card = currentCard, let course = studyController.course(for: card.courseID) {
                     studyContent(card: card, course: course, geometry: geometry, topInset: topInset, bottomInset: bottomInset, cardHeight: cardHeight, isCompact: isCompact)
                 } else {
                     emptyContent(geometry: geometry, topInset: topInset, bottomInset: bottomInset)
@@ -32,6 +46,7 @@ struct StudyDeckView: View {
         .sheet(isPresented: $isEditing) {
             if let currentCard { EditCardSheet(card: currentCard).presentationDetents([.large]) }
         }
+        .onAppear(perform: startSession)
     }
 
     @ViewBuilder
@@ -46,7 +61,7 @@ struct StudyDeckView: View {
                         .background(.white.opacity(0.7), in: Circle())
                 }
                 Spacer()
-                Text("\(cardIndex + 1) / \(cards.count)")
+                Text("\(cardIndex + 1) / \(sessionCards.count)")
                     .font(.caption.weight(.bold))
                     .monospacedDigit()
                     .foregroundStyle(AppTheme.warmGray)
@@ -61,7 +76,7 @@ struct StudyDeckView: View {
             }
 
             HStack(spacing: 5) {
-                ForEach(cards.indices, id: \.self) { index in
+                ForEach(sessionCards.indices, id: \.self) { index in
                     Capsule()
                         .fill(index <= cardIndex ? course.style.color : AppTheme.line)
                         .frame(height: 4)
@@ -109,7 +124,11 @@ struct StudyDeckView: View {
                 Spacer()
             }
             Spacer()
-            ContentUnavailableView("Henüz kart yok", systemImage: "rectangle.stack.badge.plus", description: Text("Bu derse ilk notunu ekleyebilirsin."))
+            ContentUnavailableView(
+                hasCardsInDeck ? "Bu tur için kart kalmadı" : "Henüz kart yok",
+                systemImage: hasCardsInDeck ? "checkmark.circle" : "rectangle.stack.badge.plus",
+                description: Text(hasCardsInDeck ? "Bildiğin kartlar Öğrendim sekmesinde birikir." : "Bu derse ilk notunu ekleyebilirsin.")
+            )
             Spacer()
         }
         .padding(.horizontal, 20)
@@ -118,10 +137,92 @@ struct StudyDeckView: View {
         .frame(width: geometry.size.width, height: geometry.size.height)
     }
 
+    @ViewBuilder
+    private func completedContent(geometry: GeometryProxy, topInset: CGFloat, bottomInset: CGFloat) -> some View {
+        VStack(spacing: 0) {
+            HStack {
+                Button(action: dismiss.callAsFunction) {
+                    Image(systemName: "xmark")
+                        .font(.headline)
+                        .foregroundStyle(AppTheme.ink)
+                        .frame(width: 40, height: 40)
+                        .background(.white.opacity(0.7), in: Circle())
+                }
+                Spacer()
+            }
+
+            Spacer()
+
+            VStack(spacing: 15) {
+                Image(systemName: "checkmark.circle.fill")
+                    .font(.system(size: 62, weight: .semibold))
+                    .foregroundStyle(AppTheme.ink)
+                    .padding(18)
+                    .background(.white.opacity(0.75), in: Circle())
+
+                Text("Tur tamamlandı")
+                    .font(.system(size: 32, weight: .bold, design: .serif))
+                    .foregroundStyle(AppTheme.ink)
+
+                Text("\(sessionCards.count) kartı gözden geçirdin.")
+                    .font(.headline)
+                    .foregroundStyle(AppTheme.ink)
+
+                Text(remainingReviewCount > 0
+                     ? "\(remainingReviewCount) kart tekrar akışında kaldı."
+                     : "Tüm kartların Öğrendim sekmesinde.")
+                    .font(.subheadline)
+                    .foregroundStyle(AppTheme.warmGray)
+                    .multilineTextAlignment(.center)
+            }
+            .padding(28)
+            .frame(maxWidth: .infinity)
+            .background(.white.opacity(0.74), in: RoundedRectangle(cornerRadius: 28, style: .continuous))
+            .overlay {
+                RoundedRectangle(cornerRadius: 28, style: .continuous)
+                    .stroke(AppTheme.line.opacity(0.8), lineWidth: 1)
+            }
+
+            Spacer()
+
+            if remainingReviewCount > 0 {
+                Button(action: startSession) {
+                    Label("Sonraki \(min(StudyController.defaultSessionSize, remainingReviewCount)) kart", systemImage: "arrow.right")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 18)
+                        .foregroundStyle(.white)
+                        .background(AppTheme.ink, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+                }
+                .buttonStyle(.plain)
+            }
+
+            Button("Turu kapat", action: dismiss.callAsFunction)
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(AppTheme.warmGray)
+                .padding(.top, 16)
+        }
+        .padding(.horizontal, 20)
+        .padding(.top, topInset)
+        .padding(.bottom, bottomInset)
+        .frame(width: geometry.size.width, height: geometry.size.height)
+    }
+
+    private func startSession() {
+        sessionCards = studyController.reviewSession(for: courseID)
+        cardIndex = 0
+        isAnswerVisible = false
+        isSessionComplete = false
+    }
+
     private func advance() {
-        guard !cards.isEmpty else { return }
+        guard !sessionCards.isEmpty else { return }
         withAnimation(.easeInOut(duration: 0.2)) {
-            cardIndex = (cardIndex + 1) % cards.count
+            if cardIndex + 1 < sessionCards.count {
+                cardIndex += 1
+            } else {
+                isSessionComplete = true
+            }
             isAnswerVisible = false
         }
     }

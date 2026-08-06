@@ -2,6 +2,8 @@ import Combine
 import Foundation
 
 final class StudyController: ObservableObject {
+    static let defaultSessionSize = 40
+
     @Published private(set) var knownCardIDs: Set<String> = [] {
         didSet { saveKnownCards() }
     }
@@ -57,6 +59,22 @@ final class StudyController: ObservableObject {
             if lhs.courseID == rhs.courseID { return lhs.topic < rhs.topic }
             return (course(for: lhs.courseID)?.title ?? lhs.courseID) < (course(for: rhs.courseID)?.title ?? rhs.courseID)
         }
+    }
+
+    /// Keeps cards marked as known out of the normal study queue.
+    func cardsForReview(for courseID: String? = nil) -> [Flashcard] {
+        cards(for: courseID).filter { !isKnown($0) }
+    }
+
+    /// Cards intentionally set aside after the learner chooses "Biliyorum".
+    func knownCards(for courseID: String? = nil) -> [Flashcard] {
+        cards(for: courseID).filter(isKnown)
+    }
+
+    /// Returns a finite snapshot so a round is never overwhelming and marking
+    /// a card as known cannot make the remaining cards jump unexpectedly.
+    func reviewSession(for courseID: String? = nil, limit: Int = defaultSessionSize) -> [Flashcard] {
+        Array(cardsForReview(for: courseID).prefix(max(1, limit)))
     }
 
     func progress(for course: Course) -> CourseProgress {

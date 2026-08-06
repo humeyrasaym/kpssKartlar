@@ -7,6 +7,8 @@ struct RootTabView: View {
                 .tabItem { Label("Bugün", systemImage: "sun.max.fill") }
             CourseLibraryView()
                 .tabItem { Label("Kartlar", systemImage: "rectangle.stack.fill") }
+            KnownCardsView()
+                .tabItem { Label("Öğrendim", systemImage: "checkmark.circle.fill") }
             ProgressScreen()
                 .tabItem { Label("İlerleme", systemImage: "chart.bar.fill") }
         }
