@@ -10,10 +10,17 @@ struct AddCardSheet: View {
     @State private var prompt = ""
     @State private var note = ""
     @State private var isTwoSided = false
+    @State private var isShowingSavedCardOptions = false
 
     init(initialCourseID: String? = nil) {
         self.initialCourseID = initialCourseID
         _courseID = State(initialValue: initialCourseID ?? "")
+    }
+
+    private var canSave: Bool {
+        !courseID.isEmpty &&
+        !note.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+        (!isTwoSided || !prompt.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
     }
 
     var body: some View {
@@ -55,11 +62,27 @@ struct AddCardSheet: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Kaydet") {
                         studyController.addCard(courseID: courseID, topic: topic, prompt: prompt, note: note, isTwoSided: isTwoSided)
-                        dismiss()
+                        isShowingSavedCardOptions = true
                     }
-                    .disabled(courseID.isEmpty || note.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || (isTwoSided && prompt.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty))
+                    .disabled(!canSave)
                 }
             }
+            .alert("Kart eklendi", isPresented: $isShowingSavedCardOptions) {
+                Button("Yeni kart ekle") {
+                    prepareForNextCard()
+                }
+                Button("Bitti") {
+                    dismiss()
+                }
+            } message: {
+                Text("Aynı ders seçili kalacak. Yeni kartını hemen ekleyebilirsin.")
+            }
         }
+    }
+
+    private func prepareForNextCard() {
+        topic = ""
+        prompt = ""
+        note = ""
     }
 }

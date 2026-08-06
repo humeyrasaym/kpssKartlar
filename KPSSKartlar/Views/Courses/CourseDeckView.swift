@@ -4,6 +4,7 @@ struct CourseDeckView: View {
     @EnvironmentObject private var studyController: StudyController
     let course: Course
     @State private var isStudying = false
+    @State private var isAddingCard = false
 
     private var courseCards: [Flashcard] {
         studyController.cards(for: course.id)
@@ -46,6 +47,20 @@ struct CourseDeckView: View {
                             .background(course.style.paleColor, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
                     }
 
+                    Button { isAddingCard = true } label: {
+                        Label("Bu derse kart ekle", systemImage: "rectangle.stack.badge.plus")
+                            .font(.subheadline.weight(.bold))
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 16)
+                            .foregroundStyle(course.style.color)
+                            .background(.white.opacity(0.7), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                    .stroke(course.style.color.opacity(0.28), lineWidth: 1)
+                            }
+                    }
+                    .buttonStyle(.plain)
+
                     if courseCards.isEmpty {
                         ContentUnavailableView("Henüz kart yok", systemImage: "rectangle.stack.badge.plus", description: Text("Bu derse ilk notunu Kartlar sekmesinden ekleyebilirsin."))
                             .frame(maxWidth: .infinity)
@@ -63,6 +78,10 @@ struct CourseDeckView: View {
         .navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(isPresented: $isStudying) {
             StudyDeckView(courseID: course.id)
+        }
+        .sheet(isPresented: $isAddingCard) {
+            AddCardSheet(initialCourseID: course.id)
+                .presentationDetents([.large])
         }
     }
 }
