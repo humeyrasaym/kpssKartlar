@@ -3,8 +3,10 @@ import SwiftUI
 struct CourseDeckView: View {
     @EnvironmentObject private var studyController: StudyController
     let course: Course
+    @State private var isShowingStudySetup = false
     @State private var isStudying = false
     @State private var isAddingCard = false
+    @State private var selectedSessionLimit: Int?
 
     private var courseCards: [Flashcard] {
         studyController.cards(for: course.id)
@@ -20,11 +22,11 @@ struct CourseDeckView: View {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 13) {
                     if reviewCardCount > 0 {
-                        Button { isStudying = true } label: {
+                        Button(action: showStudySetup) {
                             HStack {
                                 VStack(alignment: .leading, spacing: 3) {
                                     Text("\(course.title) turunu başlat").font(.headline)
-                                    Text("\(min(StudyController.defaultSessionSize, reviewCardCount)) kartlık odak turu hazır.")
+                                    Text("Kaç kart çalışacağını seç.")
                                         .font(.caption)
                                         .foregroundStyle(.white.opacity(0.82))
                                 }
@@ -77,11 +79,25 @@ struct CourseDeckView: View {
         .navigationTitle(course.title)
         .navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(isPresented: $isStudying) {
-            StudyDeckView(courseID: course.id)
+            StudyDeckView(courseID: course.id, sessionLimit: selectedSessionLimit ?? StudyController.sessionSizeOptions[0])
+        }
+        .sheet(isPresented: $isShowingStudySetup, onDismiss: startSelectedSession) {
+            StudySessionSetupSheet(selectedLimit: $selectedSessionLimit, courseID: course.id)
+                .presentationDetents([.medium, .large])
         }
         .sheet(isPresented: $isAddingCard) {
             AddCardSheet(initialCourseID: course.id)
                 .presentationDetents([.large])
         }
+    }
+
+    private func showStudySetup() {
+        selectedSessionLimit = nil
+        isShowingStudySetup = true
+    }
+
+    private func startSelectedSession() {
+        guard selectedSessionLimit != nil else { return }
+        isStudying = true
     }
 }

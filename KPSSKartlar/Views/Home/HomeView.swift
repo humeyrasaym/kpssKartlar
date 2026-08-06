@@ -2,7 +2,9 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject private var studyController: StudyController
+    @State private var isShowingStudySetup = false
     @State private var isShowingAllStudyCards = false
+    @State private var selectedSessionLimit: Int?
 
     private var totalKnown: Int {
         studyController.allCards.filter(studyController.isKnown).count
@@ -10,10 +12,6 @@ struct HomeView: View {
 
     private var reviewCardCount: Int {
         studyController.cardsForReview().count
-    }
-
-    private var nextRoundCount: Int {
-        min(StudyController.defaultSessionSize, reviewCardCount)
     }
 
     var body: some View {
@@ -30,13 +28,13 @@ struct HomeView: View {
                             Text("Zihninde yer aç.")
                                 .font(.system(size: 34, weight: .bold, design: .serif))
                                 .foregroundStyle(AppTheme.ink)
-                            Text("Bugün en fazla 40 kart. Küçük tekrarlar kalıcı olur.")
+                            Text("Turunun boyutunu sen seç. Küçük tekrarlar kalıcı olur.")
                                 .font(.subheadline)
                                 .foregroundStyle(AppTheme.warmGray)
                         }
 
                         if reviewCardCount > 0 {
-                            Button { isShowingAllStudyCards = true } label: {
+                            Button(action: showStudySetup) {
                             HStack(alignment: .center, spacing: 16) {
                                 Image(systemName: "sparkles")
                                     .font(.title2.weight(.semibold))
@@ -44,7 +42,7 @@ struct HomeView: View {
                                     .background(.white.opacity(0.18), in: Circle())
                                 VStack(alignment: .leading, spacing: 3) {
                                     Text("Hızlı tekrar").font(.headline)
-                                    Text("\(nextRoundCount) kartlık odak turu hazır")
+                                    Text("Kaç kart çalışacağını seç")
                                         .font(.subheadline)
                                         .foregroundStyle(.white.opacity(0.82))
                                 }
@@ -104,9 +102,23 @@ struct HomeView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
+            .sheet(isPresented: $isShowingStudySetup, onDismiss: startSelectedSession) {
+                StudySessionSetupSheet(selectedLimit: $selectedSessionLimit, courseID: nil)
+                    .presentationDetents([.medium, .large])
+            }
             .fullScreenCover(isPresented: $isShowingAllStudyCards) {
-                StudyDeckView(courseID: nil)
+                StudyDeckView(courseID: nil, sessionLimit: selectedSessionLimit ?? StudyController.sessionSizeOptions[0])
             }
         }
+    }
+
+    private func showStudySetup() {
+        selectedSessionLimit = nil
+        isShowingStudySetup = true
+    }
+
+    private func startSelectedSession() {
+        guard selectedSessionLimit != nil else { return }
+        isShowingAllStudyCards = true
     }
 }

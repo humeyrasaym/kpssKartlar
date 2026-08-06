@@ -2,7 +2,7 @@ import Combine
 import Foundation
 
 final class StudyController: ObservableObject {
-    static let defaultSessionSize = 40
+    static let sessionSizeOptions = [10, 20, 40, 50, 100]
 
     @Published private(set) var knownCardIDs: Set<String> = [] {
         didSet { saveKnownCards() }
@@ -73,7 +73,7 @@ final class StudyController: ObservableObject {
 
     /// Returns a finite snapshot so a round is never overwhelming and marking
     /// a card as known cannot make the remaining cards jump unexpectedly.
-    func reviewSession(for courseID: String? = nil, limit: Int = defaultSessionSize) -> [Flashcard] {
+    func reviewSession(for courseID: String? = nil, limit: Int) -> [Flashcard] {
         Array(cardsForReview(for: courseID).prefix(max(1, limit)))
     }
 

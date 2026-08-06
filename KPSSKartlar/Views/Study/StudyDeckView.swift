@@ -4,11 +4,19 @@ struct StudyDeckView: View {
     @EnvironmentObject private var studyController: StudyController
     @Environment(\.dismiss) private var dismiss
     let courseID: String?
+    @State private var sessionLimit: Int
     @State private var sessionCards: [Flashcard] = []
     @State private var cardIndex = 0
     @State private var isAnswerVisible = false
     @State private var isEditing = false
     @State private var isSessionComplete = false
+    @State private var isChoosingNextSession = false
+    @State private var nextSessionLimit: Int?
+
+    init(courseID: String?, sessionLimit: Int) {
+        self.courseID = courseID
+        _sessionLimit = State(initialValue: sessionLimit)
+    }
 
     private var currentCard: Flashcard? {
         guard sessionCards.indices.contains(cardIndex) else { return nil }
@@ -45,6 +53,10 @@ struct StudyDeckView: View {
         }
         .sheet(isPresented: $isEditing) {
             if let currentCard { EditCardSheet(card: currentCard).presentationDetents([.large]) }
+        }
+        .sheet(isPresented: $isChoosingNextSession, onDismiss: startSelectedNextSession) {
+            StudySessionSetupSheet(selectedLimit: $nextSessionLimit, courseID: courseID)
+                .presentationDetents([.medium, .large])
         }
         .onAppear(perform: startSession)
     }
@@ -186,8 +198,8 @@ struct StudyDeckView: View {
             Spacer()
 
             if remainingReviewCount > 0 {
-                Button(action: startSession) {
-                    Label("Sonraki \(min(StudyController.defaultSessionSize, remainingReviewCount)) kart", systemImage: "arrow.right")
+                Button(action: showNextSessionSetup) {
+                    Label("Yeni tur seç", systemImage: "slider.horizontal.3")
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 18)
@@ -209,10 +221,22 @@ struct StudyDeckView: View {
     }
 
     private func startSession() {
-        sessionCards = studyController.reviewSession(for: courseID)
+        sessionCards = studyController.reviewSession(for: courseID, limit: sessionLimit)
         cardIndex = 0
         isAnswerVisible = false
         isSessionComplete = false
+    }
+
+    private func showNextSessionSetup() {
+        nextSessionLimit = nil
+        isChoosingNextSession = true
+    }
+
+    private func startSelectedNextSession() {
+        guard let nextSessionLimit else { return }
+        sessionLimit = nextSessionLimit
+        self.nextSessionLimit = nil
+        startSession()
     }
 
     private func advance() {

@@ -28,6 +28,7 @@
 		A10000000000000000000019 /* DeckActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000019 /* DeckActionButton.swift */; };
 		A10000000000000000000020 /* ProgressScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000020 /* ProgressScreen.swift */; };
 		A10000000000000000000023 /* KnownCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000023 /* KnownCardsView.swift */; };
+		A10000000000000000000024 /* StudySessionSetupSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000024 /* StudySessionSetupSheet.swift */; };
 		A10000000000000000000021 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000021 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		A20000000000000000000019 /* DeckActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckActionButton.swift; sourceTree = "<group>"; };
 		A20000000000000000000020 /* ProgressScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressScreen.swift; sourceTree = "<group>"; };
 		A20000000000000000000023 /* KnownCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownCardsView.swift; sourceTree = "<group>"; };
+		A20000000000000000000024 /* StudySessionSetupSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySessionSetupSheet.swift; sourceTree = "<group>"; };
 		A20000000000000000000021 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A20000000000000000000022 /* KPSSKartlar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KPSSKartlar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -197,6 +199,7 @@
 				A20000000000000000000017 /* StudyCard.swift */,
 				A20000000000000000000018 /* CardFace.swift */,
 				A20000000000000000000019 /* DeckActionButton.swift */,
+				A20000000000000000000024 /* StudySessionSetupSheet.swift */,
 			);
 			path = Study;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				A10000000000000000000019 /* DeckActionButton.swift in Sources */,
 				A10000000000000000000020 /* ProgressScreen.swift in Sources */,
 				A10000000000000000000023 /* KnownCardsView.swift in Sources */,
+				A10000000000000000000024 /* StudySessionSetupSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
