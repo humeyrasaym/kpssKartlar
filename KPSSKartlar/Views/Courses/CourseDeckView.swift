@@ -49,6 +49,40 @@ struct CourseDeckView: View {
                             .background(course.style.paleColor, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
                     }
 
+                    if course.id == Course.historyID {
+                        NavigationLink {
+                            AquariumLibraryView()
+                        } label: {
+                            HStack(spacing: 14) {
+                                Image(systemName: "circle.hexagongrid.fill")
+                                    .font(.title3.weight(.semibold))
+                                    .frame(width: 46, height: 46)
+                                    .foregroundStyle(course.style.color)
+                                    .background(course.style.paleColor, in: Circle())
+                                VStack(alignment: .leading, spacing: 3) {
+                                    Text("Akvaryum Turları")
+                                        .font(.headline)
+                                    Text("Islahat, antlaşma, savaş ve kurum bağlantılarını kur.")
+                                        .font(.caption)
+                                        .foregroundStyle(AppTheme.warmGray)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                }
+                                Spacer(minLength: 4)
+                                Image(systemName: "chevron.right")
+                                    .font(.caption.weight(.bold))
+                                    .foregroundStyle(AppTheme.warmGray)
+                            }
+                            .foregroundStyle(AppTheme.ink)
+                            .padding(16)
+                            .background(.white.opacity(0.76), in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 22, style: .continuous)
+                                    .stroke(course.style.color.opacity(0.22), lineWidth: 1)
+                            }
+                        }
+                        .buttonStyle(.plain)
+                    }
+
                     Button { isAddingCard = true } label: {
                         Label("Bu derse kart ekle", systemImage: "rectangle.stack.badge.plus")
                             .font(.subheadline.weight(.bold))
