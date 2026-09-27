@@ -6,9 +6,15 @@ Kartlık: Tekrar Kartları, kullanıcıların kendi çalışma alanlarını ve t
 
 ## Verileriniz
 
-Oluşturduğunuz çalışma alanları, kartlar, kart düzenlemeleri ve öğrenme durumunuz cihazınızda saklanır. Uygulama bu içerikleri geliştiricinin sunucularına göndermez; geliştirici bu içerikleri toplamaz veya üçüncü taraflarla paylaşmaz. Uygulamada reklam, üçüncü taraf analiz aracı veya kullanıcı takibi bulunmaz.
+Oluşturduğunuz çalışma alanları, kartlar, kart düzenlemeleri ve öğrenme durumunuz cihazınızda saklanır. Uygulama bu içerikleri geliştiricinin sunucularına göndermez; geliştirici bu içerikleri toplamaz veya üçüncü taraflarla paylaşmaz. Kartlarınızın metni reklam sağlayıcısına gönderilmez.
 
 Cihaz yedeklemeleri ve Apple'ın kendi hizmetleri, cihazınızın ve Apple hesabınızın ayarlarına tabidir.
+
+## Reklamlar ve üçüncü taraf verileri
+
+Uygulama, reklam göstermek için Google AdMob (Google Mobile Ads SDK) kullanır. Google, reklamların gösterimi ve ölçümü, analiz, güvenlik ve kötüye kullanımı önleme amaçlarıyla IP adresi (yaklaşık konum çıkarımı için), cihaz veya uygulama tanımlayıcıları, reklam ve uygulama etkileşimleri ile kilitlenme ve performans verileri gibi bilgileri işleyebilir. Bu veriler Google'ın kendi gizlilik uygulamalarına tabidir. Ayrıntılar için [Google'ın gizlilik politikası](https://policies.google.com/privacy) ve [Google Mobile Ads SDK veri açıklaması](https://developers.google.com/admob/ios/privacy/data-disclosure) sayfalarına bakabilirsiniz.
+
+Gerekli bölgelerde reklamlarla ilgili izin tercihleri uygulama içinde sorulur; gerekli olduğunda bu tercihleri uygulama içinden yeniden açabilirsiniz. İzin vermemeniz kartlarınızı kullanmanızı engellemez; reklamların türünü veya gösterilip gösterilmeyeceğini etkileyebilir.
 
 ## Verileri yönetme
 
